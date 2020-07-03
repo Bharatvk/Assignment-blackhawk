@@ -1,0 +1,82 @@
+<div>
+
+    <div class="outer-wrapper">
+        <p>Date Component</p>
+        <mat-form-field appearance="fill" color="blue">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="dp1" [disabled]="datePickerEnabled">
+            <mat-datepicker-toggle matSuffix [disabled]="datePickerEnabled" [for]="dp1"></mat-datepicker-toggle>
+            <mat-datepicker [disabled]="datePickerEnabled" #dp1></mat-datepicker>
+        </mat-form-field>
+        <mat-slide-toggle (change)="toggle($event)">Disable date</mat-slide-toggle>
+    </div>
+
+</div>
+
+<div class="outer-wrapper">
+    <p>Expansion Component</p>
+    <mat-accordion>
+        <!-- #docregion basic-panel -->
+        <!-- #docregion hide-toggle -->
+        <mat-expansion-panel hideToggle>
+            <!-- #enddocregion hide-toggle -->
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Minutes of Meeting
+                </mat-panel-title>
+                <mat-panel-description>
+                    Planning: Project Management Tool
+                    <br> Attendees: John, Doe
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ol>
+                <li>Make a list of all the project Members</li>
+                <li>Design seperate dashboards for Manager and Project Members</li>
+                <li>Design Access Control based on roles and heirarchy</li>
+                <li>Design Time Management tools and tracker</li>
+                <li>Design Ticket Management and tracker</li>
+                <li>Quality Assurance and Security Check</li>
+                <li>Application Deployment</li>
+            </ol>
+        </mat-expansion-panel>
+        <!-- #enddocregion basic-panel -->
+    </mat-accordion>
+</div>
+
+<div class="outer-wrapper">
+    <p>Button Component</p>
+    <button mat-button (click)="buttonColour='accent'" [color]="buttonColour">Click to change color to Accent</button>
+    <button mat-raised-button (click)="buttonDisabled=!buttonDisabled" [disabled]="buttonDisabled">Click to Disable</button>
+</div>
+
+<div class="outer-wrapper">
+    <p>Auto Complete Component</p>
+    <p>Filter by any letter</p>
+    <form class="example-form">
+        <mat-form-field>
+            <input type="text" placeholder="Pick your favorite Pet" aria-label="Number" matInput [formControl]="searchAllControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+
+    <p>Filter By first letter</p>
+    <form class="example-form">
+        <mat-form-field>
+            <input type="text" placeholder="Type First Letter" aria-label="Number1" matInput [formControl]="searchFirstControl" [matAutocomplete]="autotest">
+            <mat-autocomplete autoActiveFirstOption #autotest="matAutocomplete">
+                <mat-option *ngFor="let option of newOptions | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+</div>
+
+<div class="pagination-block">
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>

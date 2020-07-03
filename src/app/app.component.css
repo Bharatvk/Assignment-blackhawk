@@ -1,0 +1,35 @@
+.date-disable {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.mat-checked {
+    color: red !important;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: red;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: red;
+}
+
+.outer-wrapper {
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+.pagination-block {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+:host ::ng-deep.mat-paginator .mat-paginator-container {
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    padding: 0;
+}
